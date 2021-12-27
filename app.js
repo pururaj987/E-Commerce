@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const app = express();
 const dotenv = require('dotenv');
 const userRoute = require("./routes/user");
-const authRoute = require("./routes/auth")
+const authRoute = require("./routes/auth");
+const productRoute = require("./routes/product");
 
 dotenv.config();
 
@@ -23,6 +24,8 @@ app.use(express.json());
 app.use("/api/auth" , authRoute);
 // Route for user
 app.use("/api/users",userRoute);
+//Route for product
+app.use("/api/products" , productRoute);
 
 // Listening to ports
 app.listen(process.env.PORT || 5000  , () => {

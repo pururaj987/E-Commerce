@@ -34,7 +34,7 @@ router.delete("/:id" , verifyTokenAndAuth , async(req , res) => {
         res.status(500).json(err);
     }
 })
-module.exports = router;
+
 
 //Getting the stats of users
 router.get("/stats" , verifyTokenAndAdmin , async(req, res) => {
@@ -63,7 +63,7 @@ router.get("/stats" , verifyTokenAndAdmin , async(req, res) => {
 
 //Getting the user
 // Only admin can get the user
-router.get("/:id" , verifyTokenAndAdmin , async(req, res) => {
+router.get("/find/:id" , verifyTokenAndAdmin , async(req, res) => {
     try {
         const user = await User.findById(req.params.id);
         const {password , ...others} = user._doc
@@ -88,6 +88,7 @@ router.get("/" , verifyTokenAndAdmin , async(req, res) => {
     }
 });
 
+module.exports = router;
 
 
 
