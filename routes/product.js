@@ -43,7 +43,7 @@ router.delete("/:id" , verifyTokenAndAdmin , async(req , res) => {
 });
 
 // //Getting the product
-// // Anyone admin can get the product
+// // Anyone can get the product
 router.get("/find/:id" ,  async(req, res) => {
     try {
         const product = await Product.findById(req.params.id);
